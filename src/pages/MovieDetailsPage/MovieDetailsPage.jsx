@@ -1,12 +1,13 @@
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { useParams, Link, Route, Routes, useLocation } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { Loader } from '../../components/Loader/Loader';
 import { getMovieDetails } from '../../services/Api';
 import { ImArrowLeft } from 'react-icons/im';
 import { Title } from './MovieDetailsPage.styled';
-import Cast from '../Cast/Cast';
-import Reviews from '../Reviews/Reviews';
+
+const Cast = lazy(() => import('../Cast/Cast'));
+const Reviews = lazy(() => import('../Reviews/Reviews'));
 
 function MovieDetailsPage() {
   const [movieInfo, setMovieInfo] = useState(null);

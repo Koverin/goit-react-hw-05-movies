@@ -1,12 +1,15 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { HeaderNav, Navigate, Title } from './App.styled';
 
 import { Loader } from '../Loader/Loader';
-import HomePage from '../../pages/HomePage/HomePage';
-import MoviesPage from '../../pages/MoviesPage/MoviesPage';
-import MovieDetailsPage from '../../pages/MovieDetailsPage/MovieDetailsPage';
-import NotFound from '../../pages/NotFound/NotFound';
+
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('../../pages/MoviesPage/MoviesPage'));
+const MovieDetailsPage = lazy(() =>
+  import('../../pages/MovieDetailsPage/MovieDetailsPage')
+);
+const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 
 export function App() {
   return (
